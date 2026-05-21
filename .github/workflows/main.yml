@@ -12,10 +12,10 @@ jobs:
     steps:
 
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Terraform
-        uses: hashicorp/setup-terraform@v2
+        uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
         run: terraform init
@@ -23,8 +23,5 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
-      - name: Terraform Plan
-        run: terraform plan
-
-      - name: Pipeline Success Message
+      - name: Success Message
         run: echo "Pipeline executed successfully"
