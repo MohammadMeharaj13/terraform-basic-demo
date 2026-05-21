@@ -113,13 +113,7 @@ resource "aws_security_group" "web_sg" {
 
 }
 
-resource "aws_key_pair" "terraform_key" {
 
-  key_name = "terraform-key-new"
-
-  public_key = file("C:/Users/lenovo/.ssh/id_ed25519.pub")
-
-}
 
 resource "aws_instance" "web_server" {
 
@@ -131,7 +125,6 @@ resource "aws_instance" "web_server" {
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]
 
-  key_name = aws_key_pair.terraform_key.key_name
 
   tags = {
     Name = var.server_name
